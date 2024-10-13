@@ -2,7 +2,11 @@ const { Client, GatewayIntentBits, Events, ActivityType } = require('discord.js'
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
 // const { token } = require('./config.json');
-client.config = require('./config.json')
+client.config = require('./config.json');
+// client.cooldowns = new Map();
+// client.cache = new Map();
+
+// require('./utils/RegisterCommands')(client);
 
 client.once(Events.ClientReady, clientReady => {
   clientReady.user.setActivity(`Studying Scripture!`, { type: ActivityType.Custom });
