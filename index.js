@@ -1,5 +1,7 @@
 const { Client, GatewayIntentBits, Events, ActivityType } = require('discord.js');
+require('dotenv');
 const eventHandler = require('./src/handlers/eventHandler');
+const { mongoose } = require('mongoose');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
 // const { token } = require('./config.json');
@@ -10,7 +12,20 @@ client.config = require('./config.json');
 // require('./utils/RegisterCommands')(client);
 require('./src/utils/RegisterCommands');
 
-eventHandler(client);
+// eventHandler(client);
+
+// MONGO DB CONNECTION
+(async () => {
+  console.log('at least getting here');
+  try { 
+    console.log(process.env.MONGODB_URI);
+    await mongoose.connect(client.config.mongoURI);
+    console.log('connected to MongoDB')
+    eventHandler(client);
+  } catch (error) {
+    console.error(`There was an error connecting to Mongo: ${error}`)
+  }
+})();
 
 // client.once(Events.ClientReady, clientReady => {
 //   clientReady.user.setActivity(`Studying Scripture!`, { type: ActivityType.Custom });
