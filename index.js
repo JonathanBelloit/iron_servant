@@ -25,6 +25,7 @@ require('./src/utils/RegisterCommands');
   } catch (error) {
     console.error(`There was an error connecting to Mongo: ${error}`)
   }
+  client.login(client.config.token);
 })();
 
 // client.once(Events.ClientReady, clientReady => {
@@ -44,16 +45,16 @@ require('./src/utils/RegisterCommands');
 //   }
 // });
 
-client.on(Events.InteractionCreate, async interaction => {
-  if (!interaction.isChatInputCommand()) return;
-  if (interaction.commandName === 'ping') {
-    interaction.reply('Pong!');
-  };
-  if (interaction.commandName === 'add') {
-    const num1 = interaction.options.getNumber('first-number');
-    const num2 = interaction.options.getNumber('second-number');
-    interaction.reply(`${num1} + ${num2} = ${num1 + num2}`);
-  }
-});
+// client.on(Events.InteractionCreate, async interaction => {
+//   if (!interaction.isChatInputCommand()) return;
+//   if (interaction.commandName === 'ping') {
+//     interaction.reply('Pong!');
+//   };
+//   if (interaction.commandName === 'add') {
+//     const num1 = interaction.options.getNumber('first-number');
+//     const num2 = interaction.options.getNumber('second-number');
+//     interaction.reply(`${num1} + ${num2} = ${num1 + num2}`);
+//   }
+// });
 
-client.login(client.config.token);
+
