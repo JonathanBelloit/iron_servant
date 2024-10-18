@@ -13,7 +13,7 @@ module.exports = {
     name: 'ping',
     description: 'Pong!',
     // devOnly: Boolean,
-    testOnly: true,
+    // testOnly: true,
     // options: Object[],
     // deleted: Boolean,
   
