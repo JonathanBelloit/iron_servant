@@ -3,19 +3,19 @@ const { Schema, model } = require('mongoose');
 const StudySchema = new Schema({
   ntStudyBook: {
     type: String,
-    required: true,
+    required: false,
   },
   ntStudyChapter: {
     type: Number,
-    required: true,
+    default: 1,
   },
   otStudyBook: {
     type: String,
-    required: true,
+    required: false,
   },
   otStudyChapter: {
     type: Number,
-    required: true,
+    default: 1,
   }
 })
 
