@@ -16,7 +16,7 @@ module.exports = {
   // devOnly: Boolean,
   testOnly: true,
   // options: Object[],
-  // deleted: Boolean,
+  deleted: true,
 
   callback: (client, interaction) => {
     interaction.reply(`Member Banned!`);

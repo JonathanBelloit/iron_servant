@@ -10,15 +10,13 @@ client.config = require('./config.json');
 // client.cache = new Map();
 
 // require('./utils/RegisterCommands')(client);
-require('./src/utils/RegisterCommands');
+// require('./src/utils/RegisterCommands');
 
 // eventHandler(client);
 
 // MONGO DB CONNECTION
 (async () => {
-  console.log('at least getting here');
   try { 
-    console.log(process.env.MONGODB_URI);
     await mongoose.connect(client.config.mongoURI);
     console.log('connected to MongoDB')
     eventHandler(client);
