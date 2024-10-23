@@ -9,7 +9,11 @@ module.exports = {
       name: 'oldornewtestament',
       description: 'Set the current chapter of the Old or New Testament study',
       type: ApplicationCommandOptionType.String,
-      required: true
+      required: true,
+      choices: [
+        { name: 'Old Testament', value: 'ot' },
+        { name: 'New Testament', value: 'nt' }
+      ]
     },
     {
       name: 'chapter',
